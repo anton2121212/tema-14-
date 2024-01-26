@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace ConsoleApp12
+{
+    class Point
+    {
+        /// <summary>
+        ///   внутренние скрытые (private) переменные x, y, которые определяют координаты точки;
+        /// </summary>
+        private double x, y;
+
+
+        /// <summary>
+        /// статическая переменная count, которая используется для подсчета количества созданных экземпляров класса;
+        /// </summary>
+        public static int count;
+
+
+        
+        /// <summary>
+        /// нестатический конструктор Point(double, double) с двумя параметрами, которые инициализируют одноименные внутренние поля класса;
+        /// </summary>
+        /// 
+        public Point(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+            Point.count++;
+        }
+
+        public Point() { }
+
+
+        /// <summary>
+        ///  нестатический конструктор Point() без параметров, который инициализирует внутренние поля класса значением 1.0;
+        /// </summary>
+        public Point()
+        {
+            x = 1;
+            y = 0;
+            count++;
+        }
+
+        /// <summary>
+        /// статический конструктор Point(), который инициализирует статическую переменную count нулевым значением;
+        /// </summary>
+        static Point()
+        {
+            count = 0;
+        }
+
+
+
+
+        /// <summary>
+        ///  методы доступа к внутренним переменным x, y с именами GetX(), GetY(), SetX(), SetY();
+        /// </summary>
+        /// <returns></returns>
+        public double GetX()
+        {
+            return x;
+        }
+
+        public double GetY()
+        {
+            return y;
+        }
+
+        public void Print()
+        {
+            Console.WriteLine($"x = {x}, y = {y}");
+        }
+
+    }
+
+
+
+    class Program
+    {
+        public void Main(string[] args)
+        {
+            Point point = new Point();
+            point.Print();
+
+            Point point1 = new Point(8,9);
+
+        }
+
+    }
+
+}
